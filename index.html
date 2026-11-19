@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 综合工作台 · 跨境电商 AI 应用开发作品集</title>
+<meta name="description" content="统一入口下的 AI 内容生产工作台：文档切分、可追溯检索、套图生图、漫剧视频、内容创作画布与模型训推。">
+<style>
+  :root { --ink:#182233; --muted:#5d6b7f; --blue:#2b4a8b; --bg:#f6f8fc; --line:#dfe6f2; --card:#fff; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.7 "Microsoft YaHei","PingFang SC",sans-serif; color:var(--ink); background:var(--bg); }
+  a { color:inherit; }
+  .wrap { max-width:1120px; margin:auto; padding:0 22px; }
+  header { background:linear-gradient(135deg,#1b2f5b,#365fb0); color:#fff; padding:54px 0 48px; }
+  header .tag { display:inline-block; border:1px solid #ffffff66; border-radius:20px; padding:4px 13px; font-size:13px; color:#e8efff; }
+  h1 { margin:18px 0 10px; font-size:40px; line-height:1.2; }
+  header p { max-width:760px; color:#dce6ff; font-size:16px; }
+  .stats { display:flex; gap:28px; margin-top:26px; flex-wrap:wrap; }
+  .stats div { min-width:110px; }
+  .stats b { display:block; font-size:26px; }
+  .stats span { color:#cbd8f4; font-size:13px; }
+  nav { position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--line); }
+  nav .wrap { display:flex; gap:22px; height:48px; align-items:center; overflow:auto; font-size:14px; }
+  nav a { text-decoration:none; color:var(--muted); white-space:nowrap; }
+  nav a:hover { color:var(--blue); }
+  section { padding:46px 0 8px; }
+  h2 { font-size:26px; margin:0 0 6px; }
+  .sub { color:var(--muted); margin:0 0 20px; }
+  .flow { background:#12213f; color:#eaf1ff; border-radius:14px; padding:18px 20px; font:13px/1.9 Consolas,Monaco,monospace; overflow:auto; }
+  .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; box-shadow:0 4px 16px #1b2f5b0a; }
+  .card h3 { margin:0 0 6px; font-size:18px; }
+  .card .port { float:right; font:12px Consolas,monospace; color:var(--blue); background:#edf2fc; border-radius:12px; padding:2px 8px; }
+  .label { color:var(--blue); font-weight:700; font-size:13px; margin-top:10px; }
+  .card ol { margin:5px 0; padding-left:20px; color:#35425a; }
+  .card li { margin:3px 0; }
+  .shots { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+  figure { margin:0; background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  figure img { width:100%; display:block; background:#eef2f8; }
+  figcaption { padding:9px 12px; font-size:13px; color:var(--muted); }
+  .products { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  .products img { width:100%; aspect-ratio:1; object-fit:cover; border:1px solid var(--line); border-radius:10px; }
+  .note { background:#fff8e9; border-left:4px solid #e6a700; padding:12px 16px; border-radius:6px; color:#6a4c00; }
+  footer { margin-top:50px; padding:28px 0 40px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+  code { background:#edf2fc; border-radius:4px; padding:1px 5px; font-size:13px; }
+  @media (max-width:760px) { .grid,.shots,.products { grid-template-columns:1fr; } h1{font-size:30px;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="tag">跨境电商 AI 应用开发 · 作品集</span>
+    <h1>AI 综合工作台</h1>
+    <p>一个统一入口下的电商内容生产系统：从可信文档与检索，到套图、漫剧、创作画布，再到模型训练与推理服务。重点展示如何把不确定的 AI 能力做成可靠、可追溯、可运营的工程系统。</p>
+    <div class="stats">
+      <div><b>6+1</b><span>应用与能力模块</span></div>
+      <div><b>7</b><span>真实界面截图</span></div>
+      <div><b>4</b><span>商品演示素材</span></div>
+      <div><b>3</b><span>核心工程原则</span></div>
+    </div>
+  </div>
+</header>
+
+<nav><div class="wrap">
+  <a href="#architecture">架构</a><a href="#projects">项目实操</a><a href="#screenshots">界面截图</a><a href="#assets">商品素材</a><a href="#principles">工程原则</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="architecture">
+  <h2>整体架构</h2>
+  <p class="sub">统一网关负责登录和逐应用授权；六个应用共享基础设施但各自数据库与数据卷隔离。</p>
+  <div class="flow">
+统一桌面（登录 / 应用授权）
+  ├─ 商境        内容创作画布、任务队列、模型中心
+  ├─ PicAgent    两阶段套图规划、提示词快照、生图画布
+  ├─ ComicFlow   故事 → 剧本/分镜/角色 → 漫剧视频
+  ├─ Chunk Lab   商品文档解析、切分、人工校正、向量化
+  ├─ Retrieval   Dense/BM25/Hybrid/Rerank 可追溯检索
+  └─ CPPT        数据集 → SFT/DPO 微调 → Adapter → vLLM
+共享底座：PostgreSQL / pgvector · MinIO · Redis · Docker Compose
+  </div>
+</section>
+
+<section id="projects">
+  <h2>每个项目：流程与亮点</h2>
+  <p class="sub">这里只列现场演示的主线；完整版见仓库内的 <code>PRESENTATION.md</code>。</p>
+  <div class="grid">
+    <div class="card"><span class="port">入口</span><h3>① XShipAI Desktop</h3><div class="label">操作流程</div><ol><li>登录统一桌面，查看六个应用图标</li><li>直连子应用页面，被踢回登录页</li><li>点击图标后授权进入具体应用</li><li>退出登录，会话失效</li></ol><div class="label">亮点</div><div>Nginx auth_request 统一网关、逐应用授权、HttpOnly Session、飞书 OAuth2 + PKCE。</div></div>
+
+    <div class="card"><span class="port">应用</span><h3>② 商境</h3><div class="label">操作流程</div><ol><li>浏览工作台/项目/商品/素材/系统</li><li>进入项目画布，查看八类节点与连线</li><li>查看任务队列的状态、耗时与错误</li><li>系统 → 模型中心查看模型目录</li></ol><div class="label">亮点</div><div>类型化画布、幂等提交、按上游编号区分提交/轮询失败、渠道密钥加密。</div></div>
+
+    <div class="card"><span class="port">应用</span><h3>③ Chunk Lab</h3><div class="label">操作流程</div><ol><li>上传商品文档并解析</li><li>选择切分策略并生成预览</li><li>校正、拆分、合并、排除、撤销</li><li>审核 Context 后向量化入库并检索测试</li></ol><div class="label">亮点</div><div>结构感知/语义切分、父子块、来源高亮、Context 生命周期、pgvector 写入。</div></div>
+
+    <div class="card"><span class="port">应用</span><h3>④ 智能检索</h3><div class="label">操作流程</div><ol><li>输入商品相关查询</li><li>切换 Dense/BM25/Hybrid/Rerank</li><li>查看 Context Pack 与 Citation</li><li>运行评测并比较延迟</li></ol><div class="label">亮点</div><div>只读 adapter、服务端权威证据、显式失败状态，不静默降级或编造。</div></div>
+
+    <div class="card"><span class="port">应用</span><h3>⑤ PicAgent</h3><div class="label">操作流程</div><ol><li>新建方案并上传商品实拍图</li><li>白底精修并选 Amazon 平台规则</li><li>勾选商品资料，生成结构建议</li><li>人工确认后生成类别提示词与任务卡</li></ol><div class="label">亮点</div><div>两阶段 LLM 编排 + 人工确认闸门、平台规则注入、事实快照、版本血缘。</div></div>
+
+    <div class="card"><span class="port">应用</span><h3>⑥ ComicFlow / CPPT</h3><div class="label">操作流程</div><ol><li>ComicFlow：输故事 → 看预计 Credit → 看阶段与任务详情</li><li>CPPT：看数据集校验 → 训练参数 → Adapter → 推理服务</li></ol><div class="label">亮点</div><div>Celery 长任务、成本门禁、依赖失效；配置即代码、单 GPU 租约、云端恢复。</div></div>
+  </div>
+</section>
+
+<section id="screenshots">
+  <h2>真实界面截图</h2>
+  <p class="sub">截图来自本地演示环境，已检查不含真实口令或密钥。</p>
+  <div class="shots">
+    <figure><img src="screenshots/02-desktop.png" alt="统一桌面"><figcaption>统一桌面：六个应用入口，点击图标才授权。</figcaption></figure>
+    <figure><img src="screenshots/03-shangjing.png" alt="商境工作台"><figcaption>商境：内容创作工作台与任务队列。</figcaption></figure>
+    <figure><img src="screenshots/05-picagent.png" alt="PicAgent 创建页"><figcaption>PicAgent：从商品实拍到套图方案，简报中选择目标平台。</figcaption></figure>
+    <figure><img src="screenshots/06-chunk-lab.png" alt="Chunk Lab"><figcaption>Chunk Lab：文档解析、切分预览与人工校正。</figcaption></figure>
+    <figure><img src="screenshots/07-retrieval.png" alt="智能检索"><figcaption>智能检索：策略切换、Context Pack 与 Citation。</figcaption></figure>
+    <figure><img src="screenshots/08-cppt.png" alt="CPPT 训推平台"><figcaption>CPPT：数据集、训练任务、模型产物与推理服务概览。</figcaption></figure>
+  </div>
+</section>
+
+<section id="assets">
+  <h2>商品演示素材</h2>
+  <p class="sub">四张鼠标商品图，用于演示「实拍原图 / 白底图 → 平台规则约束 → 套图素材」的输入链路。</p>
+  <div class="products">
+    <figure><img src="assets/products/mouse-white-bg.webp" alt="白底商品图"><figcaption>白底商品图：主图输入</figcaption></figure>
+    <figure><img src="assets/products/mouse-black-detail.webp" alt="黑色鼠标细节"><figcaption>实拍细节：细节图输入</figcaption></figure>
+    <figure><img src="assets/products/mouse-packaging-dark.webp" alt="鼠标包装"><figcaption>包装实拍：场景素材</figcaption></figure>
+    <figure><img src="assets/products/mouse-pink-lifestyle.webp" alt="粉色鼠标场景"><figcaption>生活方式：风格参考</figcaption></figure>
+  </div>
+  <p class="note">商品图片仅用于技术演示与作品集说明，不代表任何品牌授权或商业合作。</p>
+</section>
+
+<section id="principles">
+  <h2>贯穿全项目的工程原则</h2>
+  <div class="grid">
+    <div class="card"><h3>AI 输出先约束再进入状态</h3><div>LLM 输出先解析、归一化、Schema 校验，再冻结成快照；关键动作前设置人工确认闸门。</div></div>
+    <div class="card"><h3>生成任务异步幂等可追溯</h3><div>长任务异步化；幂等键防止重复写；attempt、version、lineage 分离，局部修改只失效下游。</div></div>
+    <div class="card"><h3>供应商用适配层隔离</h3><div>文本/图像/视频/OCR 统一 Provider 接口；密钥服务端加密；模型目录与执行能力分离。</div></div>
+    <div class="card"><h3>明确边界与失败状态</h3><div>真实验收、Mock 与待测严格区分；外部依赖失败显式返回，不静默降级、不编造结果。</div></div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">AI 综合工作台 · 跨境电商 AI 应用开发作品集 · 静态展示页，不含登录功能与私有凭证。</div></footer>
+</body>
+</html>
