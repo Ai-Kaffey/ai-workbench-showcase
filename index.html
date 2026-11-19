@@ -41,6 +41,10 @@
   .products { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
   .products img { width:100%; aspect-ratio:1; object-fit:cover; border:1px solid var(--line); border-radius:10px; }
   .note { background:#fff8e9; border-left:4px solid #e6a700; padding:12px 16px; border-radius:6px; color:#6a4c00; }
+  .entry { background:#0f1d3a; color:#eaf1ff; border-radius:14px; padding:18px 20px; margin-top:14px; }
+  .entry h3 { margin:0 0 8px; color:#fff; }
+  .entry a { color:#9fc0ff; }
+  .entry .hint { color:#b8c8e8; font-size:13px; }
   footer { margin-top:50px; padding:28px 0 40px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
   code { background:#edf2fc; border-radius:4px; padding:1px 5px; font-size:13px; }
   @media (max-width:760px) { .grid,.shots,.products { grid-template-columns:1fr; } h1{font-size:30px;} }
@@ -62,10 +66,20 @@
 </header>
 
 <nav><div class="wrap">
-  <a href="#architecture">架构</a><a href="#projects">项目实操</a><a href="#screenshots">界面截图</a><a href="#assets">商品素材</a><a href="#principles">工程原则</a>
+  <a href="#live">在线入口</a><a href="#architecture">架构</a><a href="#projects">项目实操</a><a href="#screenshots">界面截图</a><a href="#assets">商品素材</a><a href="#principles">工程原则</a>
 </div></nav>
 
 <main class="wrap">
+
+<section id="live">
+  <h2>在线演示入口</h2>
+  <p class="sub">现场演示时由讲解人打开统一工作台，并现场输入账号口令；本页与仓库均不展示任何口令或密钥。</p>
+  <div class="entry">
+    <h3>AI 综合工作台 · 统一登录入口</h3>
+    <p><a href="http://110.42.51.234:18500/" target="_blank" rel="noopener">http://110.42.51.234:18500/</a></p>
+    <p class="hint">登录后从桌面点击图标进入各应用。若直接打开子应用页面，会被重定向回统一登录页。访问前请确认服务器与网络可达。</p>
+  </div>
+</section>
 
 <section id="architecture">
   <h2>整体架构</h2>
@@ -102,7 +116,7 @@
 
 <section id="screenshots">
   <h2>真实界面截图</h2>
-  <p class="sub">截图来自本地演示环境，已检查不含真实口令或密钥。</p>
+  <p class="sub">截图来自本地演示环境，已检查不含真实口令或密钥。下方是总览；完整逐步流程（37 张）见仓库 <code>screenshots/steps/</code>。</p>
   <div class="shots">
     <figure><img src="screenshots/02-desktop.png" alt="统一桌面"><figcaption>统一桌面：六个应用入口，点击图标才授权。</figcaption></figure>
     <figure><img src="screenshots/03-shangjing.png" alt="商境工作台"><figcaption>商境：内容创作工作台与任务队列。</figcaption></figure>
@@ -115,14 +129,14 @@
 
 <section id="assets">
   <h2>商品演示素材</h2>
-  <p class="sub">四张鼠标商品图，用于演示「实拍原图 / 白底图 → 平台规则约束 → 套图素材」的输入链路。</p>
+  <p class="sub">四张鼠标商品图是各项目通用的输入素材：白底主图、实拍细节、包装和场景图，可用于文档审阅、套图生成、视觉参考、图像理解等演示链路。图片已去除第三方水印。</p>
   <div class="products">
-    <figure><img src="assets/products/mouse-white-bg.webp" alt="白底商品图"><figcaption>白底商品图：主图输入</figcaption></figure>
-    <figure><img src="assets/products/mouse-black-detail.webp" alt="黑色鼠标细节"><figcaption>实拍细节：细节图输入</figcaption></figure>
-    <figure><img src="assets/products/mouse-packaging-dark.webp" alt="鼠标包装"><figcaption>包装实拍：场景素材</figcaption></figure>
-    <figure><img src="assets/products/mouse-pink-lifestyle.webp" alt="粉色鼠标场景"><figcaption>生活方式：风格参考</figcaption></figure>
+    <figure><img src="assets/products/mouse-white-bg.jpg" alt="白底商品图"><figcaption>白底商品图：主图输入</figcaption></figure>
+    <figure><img src="assets/products/mouse-black-detail.jpg" alt="黑色鼠标细节"><figcaption>实拍细节：细节图输入</figcaption></figure>
+    <figure><img src="assets/products/mouse-packaging-dark.jpg" alt="鼠标包装"><figcaption>包装实拍：场景素材</figcaption></figure>
+    <figure><img src="assets/products/mouse-pink-lifestyle.jpg" alt="粉色鼠标场景"><figcaption>生活方式：风格参考</figcaption></figure>
   </div>
-  <p class="note">商品图片仅用于技术演示与作品集说明，不代表任何品牌授权或商业合作。</p>
+  <p class="note">商品图片仅作为项目输入素材用于技术演示与作品集说明，不代表任何品牌授权或商业合作。</p>
 </section>
 
 <section id="principles">
