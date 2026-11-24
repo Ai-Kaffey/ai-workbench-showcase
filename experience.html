@@ -49,12 +49,10 @@
     <p>统一桌面与六大 Agent 已完成视觉升级：深蓝夜航画布、港口网格、青蓝航线与珊瑚橙强调，保留原有功能、布局与操作流程，让商品从素材到全球上架的链路更清晰、更有代入感。</p>
     <div class="hero-grid">
       <section class="access">
-        <h2>在线体验入口 · 新版 UI</h2>
-        <a class="url" id="experience-url" href="https://rotten-gifts-work.loca.lt/" target="_blank" rel="noopener">https://rotten-gifts-work.loca.lt/</a>
-        <p style="margin-top:10px;color:rgba(225,245,250,.72);font-size:13px">临时沉浸式体验代理：保留原登录、授权与六个应用功能，并在页面加载时实时注入新版跨境电商视觉层。首次访问如出现 localtunnel 提示页，点击「Continue / 继续」即可。若链接失效，以下方动态地址为准。</p>
-        <a class="btn" id="experience-button" href="https://rotten-gifts-work.loca.lt/" target="_blank" rel="noopener">进入新版工作台 →</a>
-        <p style="margin-top:12px;color:rgba(225,245,250,.78);font-size:12px">动态地址：<a id="dynamic-url" href="https://github.com/Ai-Kaffey/ai-workbench-showcase/blob/main/active-experience-url.txt" target="_blank" rel="noopener">在 GitHub 查看当前地址</a></p>
-        <p style="margin-top:12px;color:rgba(225,245,250,.66);font-size:12px">备用原入口（旧 UI）：<a href="http://110.42.51.234:18500/" target="_blank" rel="noopener" style="color:#bff7f4">http://110.42.51.234:18500/</a></p>
+        <h2>在线体验入口 · 正式新版 UI</h2>
+        <a class="url" id="experience-url" href="http://110.42.51.234:18500/" target="_blank" rel="noopener">http://110.42.51.234:18500/</a>
+        <p style="margin-top:10px;color:rgba(225,245,250,.72);font-size:13px">新版跨境电商沉浸式视觉层已固化到服务器网关：统一桌面与六个 Agent 页面加载时自动应用新版样式，原有登录、授权、接口和数据保持不变。</p>
+        <a class="btn" id="experience-button" href="http://110.42.51.234:18500/" target="_blank" rel="noopener">进入新版工作台 →</a>
       </section>
       <section class="account">
         <h2>体验账号</h2>
@@ -95,34 +93,10 @@
     <h2>企业体验说明</h2>
     <p><strong>建议体验顺序：</strong><span class="pill">登录桌面</span><span class="pill">商境画布</span><span class="pill">Chunk Lab</span><span class="pill">智能检索</span><span class="pill">PicAgent</span><span class="pill">ComicFlow</span><span class="pill">CPPT</span></p>
     <p class="sub">当前演示入口使用 HTTP，浏览器可能提示「不安全」，这是临时测试环境；正式企业部署会绑定域名并启用公共可信 HTTPS。公开页面仅用于本次体验确认，账号口令请勿二次分发或截图公开。</p>
-    <p class="sub" style="margin-bottom:0"><strong>部署状态：</strong>新版视觉层、教程和源码已发布到本 GitHub 仓库；上方临时体验代理已实时注入新版 UI，可直接用于企业演示。原服务器容器入口仍是旧镜像，需有效 SSH / 宝塔凭据完成一次容器重建后，新版 UI 才会永久固化到六个 Agent 页面。</p>
+    <p class="sub" style="margin-bottom:0"><strong>部署状态：</strong>新版视觉层已通过服务器网关持久化生效，统一桌面、商境、PicAgent、ComicFlow、Chunk Lab、智能检索、CPPT 均已验证加载新版 CSS；临时代理已停用。源码、教程和展示资料同步发布在本 GitHub 仓库。</p>
   </section>
 </main>
 
-<script>
-  fetch('active-experience-url.txt?t=' + Date.now(), { cache: 'no-store' })
-    .then(response => response.text())
-    .then(url => {
-      const target = url.trim().replace(/\/$/, '') + '/';
-      if (!/^https:\/\/[a-z0-9-]+\.loca\.lt$/.test(url.trim())) return;
-      const link = document.getElementById('experience-url');
-      const button = document.getElementById('experience-button');
-      const dynamic = document.getElementById('dynamic-url');
-      link.textContent = target;
-      link.href = target;
-      button.href = target;
-      dynamic.textContent = target;
-      dynamic.href = target;
-    })
-    .catch(() => {
-      const fallback = 'https://rotten-gifts-work.loca.lt/';
-      const link = document.getElementById('experience-url');
-      const button = document.getElementById('experience-button');
-      link.textContent = fallback;
-      link.href = fallback;
-      button.href = fallback;
-    });
-</script>
 
 <footer><div class="wrap">XShipAI Workbench · 跨境电商 AI 内容生产全链路 · 企业体验确认页</div></footer>
 </body>
