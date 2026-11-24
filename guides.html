@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent 使用教程 · XShipAI 工作台</title>
+  <link rel="stylesheet" href="commerce-immersive.css">
+  <style>
+    :root { --ink:#102b3d; --muted:#5d7888; --line:#d7e6ec; --cyan:#32d6d0; --coral:#ff7a59; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:15px/1.75 "Microsoft YaHei","PingFang SC",sans-serif; color:var(--ink); background:#eef6f9; }
+    a { color:#0c7c85; }
+    .hero { position:relative; overflow:hidden; padding:42px 0 36px; color:#fff; background:radial-gradient(circle at 84% 18%,rgba(50,214,208,.24),transparent 30%),linear-gradient(125deg,#061321,#0b3450 62%,#0d6374); }
+    .hero::after { content:""; position:absolute; inset:0; opacity:.35; pointer-events:none; background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px); background-size:52px 52px; mask-image:linear-gradient(#000,transparent); }
+    .wrap { position:relative; z-index:1; max-width:1040px; margin:auto; padding:0 24px; }
+    .tag { display:inline-block; border:1px solid rgba(50,214,208,.45); border-radius:99px; padding:4px 13px; color:#bff7f4; background:rgba(50,214,208,.1); font-size:12px; letter-spacing:.12em; }
+    h1 { margin:16px 0 8px; font-size:36px; }
+    .hero p { margin:0; color:rgba(225,245,250,.82); }
+    main { padding:34px 0 60px; }
+    h2 { margin:30px 0 10px; font-size:24px; }
+    h3 { margin:18px 0 6px; font-size:17px; color:#0c6178; }
+    p, li { color:#34556a; }
+    .card { border:1px solid rgba(21,82,118,.12); border-radius:16px; background:rgba(255,255,255,.96); box-shadow:0 14px 38px rgba(7,40,66,.085); padding:20px 22px; margin:16px 0; }
+    .card:hover { border-color:rgba(50,214,208,.42); box-shadow:0 18px 46px rgba(7,40,66,.14); }
+    .note { border-left:4px solid var(--coral); background:#fff5ef; padding:12px 16px; border-radius:8px; color:#7a3a24; }
+    code { background:#e6f5f6; border-radius:4px; padding:1px 5px; color:#0b6f7a; }
+    .nav { display:flex; gap:8px; flex-wrap:wrap; margin-top:20px; }
+    .nav a { display:inline-block; padding:7px 12px; border:1px solid rgba(21,82,118,.14); border-radius:99px; background:#fff; text-decoration:none; font-size:13px; font-weight:700; }
+    footer { padding:24px 0 40px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+    @media(max-width:760px){ h1{font-size:28px} }
+  </style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="tag">External Reference · 2026</span>
+  <h1>六大 Agent 功能使用教程</h1>
+  <p>面向企业体验与外部评审：按界面逐项说明能做什么、怎么演示、哪些按钮不要点，以及每个 Agent 的工程亮点。</p>
+  <div class="nav">
+    <a href="#desktop">统一桌面</a><a href="#shangjing">商境</a><a href="#picagent">PicAgent</a>
+    <a href="#comicflow">ComicFlow</a><a href="#chunk">Chunk Lab</a><a href="#retrieval">智能检索</a><a href="#cppt">CPPT</a>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <p class="note"><strong>体验原则：</strong>只浏览、配置、预览和查看任务队列。所有「生成 / 一键精修 / 开始解析 / 向量化 / 提交训练 / 启动 GPU / 推理」等可能触发真实模型、存储或云端计费的按钮，现场只讲解不执行。</p>
+
+  <section class="card" id="desktop"><h2>0. 统一桌面与登录</h2>
+    <ol><li>打开统一入口，输入账号与密码。</li><li>桌面展示 6 个应用：训推平台、ComicFlow、PicAgent、Chunk Lab、智能检索、商境。</li><li>点击图标后网关才为该应用授权；新标签页打开应用前必须先点击图标。</li><li>体验结束后点击右上角用户菜单，选择「锁定并退出登录」。</li></ol>
+    <p><strong>亮点：</strong>Nginx <code>auth_request</code> 统一网关、逐应用授权、HttpOnly Session、飞书 OAuth2 + PKCE。</p>
+  </section>
+
+  <section class="card" id="shangjing"><h2>1. 商境 · 电商内容智能创作</h2>
+    <p>以商品长期聊天为入口、项目无限画布为核心的图文/视频内容生产系统。</p>
+    <ol><li>工作台查看跨项目运行中、待处理任务。</li><li>商品页用聊天、表单或素材建档，查看事实、建议与历史。</li><li>项目画布查看商品输入、图片输入、提示词、生图、改图、合成、视频、输出八类节点。</li><li>观察文本/图片/视频端口类型校验、节点版本切换与任务队列状态。</li><li>系统 → 模型中心查看 4 渠道 12 模型；密钥只显示末四位。</li><li>素材与回收站查看结果素材、版本来源与恢复边界。</li></ol>
+    <p><strong>亮点：</strong>AI 只建议；用户预览范围再开始；同编号与参数幂等；提交/轮询失败分级；来源固定到具体成功版本。</p>
+  </section>
+
+  <section class="card" id="picagent"><h2>2. PicAgent · 商品套图工作台</h2>
+    <p>把商品实拍图、平台规则和勾选事实组织成可审阅的套图生产链路。</p>
+    <ol><li>创建方案并上传 1–6 张商品原图。</li><li>白底精修查看候选与历史 attempt，不覆盖旧版本。</li><li>爆品图反推只提炼构图与光影，不覆盖产品外观事实。</li><li>简报选择 <code>Amazon</code> 等平台，查看首图白底、附图、文字与人物限制。</li><li>勾选允许使用的 Chunk；未勾选时显式标「缺失事实」。</li><li>生成结构建议 → 人工确认 → 按类别生成提示词 → 物化为画布任务卡。</li></ol>
+    <p><strong>亮点：</strong>两阶段 LLM 编排 + 人工确认闸门；RAG 事实约束；提示词/来源快照；attempt 版本血缘。</p>
+  </section>
+
+  <section class="card" id="comicflow"><h2>3. ComicFlow · 故事到漫剧视频</h2>
+    <p>把中文故事拆成剧本、分镜、角色卡、画面、字幕和导出任务的异步生产线。</p>
+    <ol><li>新建项目并输入中文故事，查看预计 Credit 与成本门禁。</li><li>依次查看故事审阅、剧本、分镜、角色、画面、字幕/时间轴、导出。</li><li>打开阶段产物，查看版本号、依赖状态与任务详情。</li><li>上游修改后观察下游依赖失效标记，不自动重跑付费任务。</li><li>导出页说明 FFmpeg 服务端拼接与结果归集。</li></ol>
+    <p><strong>亮点：</strong>Celery 异步长任务、阶段产物版本化、局部依赖失效、成本门禁、导出产物可追溯。</p>
+  </section>
+
+  <section class="card" id="chunk"><h2>4. Chunk Lab · 电商文档审阅台</h2>
+    <p>把 PDF/图片/Office 文档解析成有来源、可人工校正的 Chunk，再进入 Context 审核。</p>
+    <ol><li>左栏添加文档，选择 VLM/Pipeline、语言、OCR、表格、公式。</li><li>中间文档舞台查看原页、来源框、页码、缩放与来源锁定。</li><li>使用选择、新建、批选、合并、拆分、排除、删除、撤销等标注工具。</li><li>右侧选择切分策略，调整参数并生成预览，查看指标分布。</li><li>对 Chunk 做校正与 Context 审核，理解 generating / awaiting_review / confirmed / failed / stale 生命周期。</li></ol>
+    <p><strong>亮点：</strong>结构感知/语义切分、父子块、来源定位、人工审阅、Context 生命周期、pgvector 写入边界。</p>
+  </section>
+
+  <section class="card" id="retrieval"><h2>5. Agentic Retrieval · 智能检索工作台</h2>
+    <p>比较不同检索策略，检查真正送给回答模型的证据并验证引用。</p>
+    <ol><li>输入查询，例如 <code>USB-C 快充</code>。</li><li>依次切换 <code>Dense</code> / <code>BM25</code> / <code>Hybrid</code> / <code>Hybrid + Rerank</code>，对比召回、分数与延迟。</li><li>展开 <code>Context Pack</code> 查看真正送给答案模型的证据。</li><li>核对 <code>Citation</code> 是否落在证据范围内；失败、降级、拒答显式展示。</li><li>对比页一次运行四种配置；评测页查看 Recall@K、Precision@K、MRR、nDCG@K 与可选 Ragas。</li></ol>
+    <p><strong>亮点：</strong>只读 adapter、服务端权威证据、显式失败态、引用校验、OpenAPI 生成 TS SDK。</p>
+  </section>
+
+  <section class="card" id="cppt"><h2>6. CPPT · 训推平台</h2>
+    <p>把数据集校验、微调、Adapter 管理、推理服务和云 GPU 调度做成可运营流水线。</p>
+    <ol><li>系统概览查看平台状态、任务队列与资源概况。</li><li>数据集查看校验报告、样本、版本与修复入口。</li><li>训练任务查看 LoRA / QLoRA 参数、YAML 配置即代码、队列、日志与 Loss 曲线；不提交训练。</li><li>模型管理查看 base / Best / Final Adapter 与归档恢复。</li><li>推理服务查看列表、健康状态、单 GPU 租约与 SSH 失败恢复边界；云 GPU 只讲解不启动实例。</li></ol>
+    <p><strong>亮点：</strong>配置即代码、eval_loss 选 Best、单 GPU 租约、云端恢复、资源生命周期清理。</p>
+  </section>
+
+  <section class="card"><h2>推荐演示顺序</h2>
+    <p>统一桌面登录 → 商境工作台 → 商境项目画布 → 商境模型中心 → Chunk Lab → 智能检索 → PicAgent → ComicFlow → CPPT → 退出登录。</p>
+    <p><strong>收尾话术：</strong>这条链路覆盖「文档切成可信 Chunk → 可追溯检索 → 平台规则约束下的套图/视频生成 → 任务队列与版本血缘 → 底层模型训推」；贯穿三个工程原则：AI 输出先约束再进入状态、生成类任务异步幂等可追溯、供应商通过适配层隔离。</p>
+  </section>
+</main>
+
+<footer><div class="wrap">XShipAI Workbench · 六大 Agent 对外使用教程 · <a href="https://github.com/Ai-Kaffey/ai-workbench-showcase">查看 GitHub 仓库</a></div></footer>
+</body>
+</html>
