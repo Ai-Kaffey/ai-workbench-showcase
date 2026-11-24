@@ -50,9 +50,10 @@
     <div class="hero-grid">
       <section class="access">
         <h2>在线体验入口 · 新版 UI</h2>
-        <a class="url" id="experience-url" href="#" target="_blank" rel="noopener">正在读取临时体验地址…</a>
-        <p style="margin-top:10px;color:rgba(225,245,250,.72);font-size:13px">临时沉浸式体验代理：保留原登录、授权与六个应用功能，并在页面加载时实时注入新版跨境电商视觉层。首次访问如出现 localtunnel 提示页，点击「Continue / 继续」即可。</p>
-        <a class="btn" id="experience-button" href="#" target="_blank" rel="noopener">进入新版工作台 →</a>
+        <a class="url" id="experience-url" href="https://rotten-gifts-work.loca.lt/" target="_blank" rel="noopener">https://rotten-gifts-work.loca.lt/</a>
+        <p style="margin-top:10px;color:rgba(225,245,250,.72);font-size:13px">临时沉浸式体验代理：保留原登录、授权与六个应用功能，并在页面加载时实时注入新版跨境电商视觉层。首次访问如出现 localtunnel 提示页，点击「Continue / 继续」即可。若链接失效，以下方动态地址为准。</p>
+        <a class="btn" id="experience-button" href="https://rotten-gifts-work.loca.lt/" target="_blank" rel="noopener">进入新版工作台 →</a>
+        <p style="margin-top:12px;color:rgba(225,245,250,.78);font-size:12px">动态地址：<a id="dynamic-url" href="https://github.com/Ai-Kaffey/ai-workbench-showcase/blob/main/active-experience-url.txt" target="_blank" rel="noopener">在 GitHub 查看当前地址</a></p>
         <p style="margin-top:12px;color:rgba(225,245,250,.66);font-size:12px">备用原入口（旧 UI）：<a href="http://110.42.51.234:18500/" target="_blank" rel="noopener" style="color:#bff7f4">http://110.42.51.234:18500/</a></p>
       </section>
       <section class="account">
@@ -99,16 +100,19 @@
 </main>
 
 <script>
-  fetch('active-experience-url.txt?t=' + Date.now(), { cache: 'no-store' })
+  fetch('https://raw.githubusercontent.com/Ai-Kaffey/ai-workbench-showcase/main/active-experience-url.txt?t=' + Date.now(), { cache: 'no-store' })
     .then(response => response.text())
     .then(url => {
       const target = url.trim().replace(/\/$/, '') + '/';
       if (!/^https:\/\/[a-z0-9-]+\.loca\.lt$/.test(url.trim())) return;
       const link = document.getElementById('experience-url');
       const button = document.getElementById('experience-button');
+      const dynamic = document.getElementById('dynamic-url');
       link.textContent = target;
       link.href = target;
       button.href = target;
+      dynamic.textContent = target;
+      dynamic.href = target;
     })
     .catch(() => {
       const fallback = 'https://rotten-gifts-work.loca.lt/';
