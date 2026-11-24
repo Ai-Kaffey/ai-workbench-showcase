@@ -110,7 +110,14 @@
       link.href = target;
       button.href = target;
     })
-    .catch(() => {});
+    .catch(() => {
+      const fallback = 'https://shiny-meals-burn.loca.lt/';
+      const link = document.getElementById('experience-url');
+      const button = document.getElementById('experience-button');
+      link.textContent = fallback;
+      link.href = fallback;
+      button.href = fallback;
+    });
 </script>
 
 <footer><div class="wrap">XShipAI Workbench · 跨境电商 AI 内容生产全链路 · 企业体验确认页</div></footer>
