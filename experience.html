@@ -100,7 +100,7 @@
 </main>
 
 <script>
-  fetch('https://raw.githubusercontent.com/Ai-Kaffey/ai-workbench-showcase/main/active-experience-url.txt?t=' + Date.now(), { cache: 'no-store' })
+  fetch('active-experience-url.txt?t=' + Date.now(), { cache: 'no-store' })
     .then(response => response.text())
     .then(url => {
       const target = url.trim().replace(/\/$/, '') + '/';
